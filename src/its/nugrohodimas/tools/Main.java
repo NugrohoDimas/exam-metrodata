@@ -53,7 +53,9 @@ public class Main {
                 String id;
                 id = input.nextLine();
                 controller.showDelete(id);
-            } else System.out.println("Perintah yang kamu masukan tidak ada!");
+            } else {
+                System.out.println("Perintah yang kamu masukan tidak ada!");
+            }
         }
     }
 }
