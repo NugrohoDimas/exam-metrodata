@@ -73,7 +73,7 @@ public class DepartmentController implements DepartmentDAO {
         try {
             boolean isInsert = getById(department.getId()) == null;
             String query = isInsert
-                    ? "INSERT INTO departments(name, location_id, manager_id, id) VALUES(?,?,?,?)"
+                    ? "INSERT INTO departments(name, location_id, manager_id, id) VALUES (?,?,?,?)"
                     : "UPDATE departments SET name = ?, location_id = ?, manager_id = ? WHERE id = ?";
 
 
@@ -92,5 +92,13 @@ public class DepartmentController implements DepartmentDAO {
 
     public void showAllDepartments() {
         this.departmentView.showAllDepartments(getAllDepartments());
+    }
+
+    public void showSaveDepartment(Department department) {
+        this.departmentView.showStatusDepartments(saveDepartment(department));
+    }
+
+    public void showDelete(String id) {
+        this.departmentView.showStatusDepartments(deleteDepartment(id));
     }
 }

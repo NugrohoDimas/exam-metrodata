@@ -32,21 +32,28 @@ public class Main {
             DepartmentController controller = new DepartmentController(view, dbc.getConnection());
             if (perintah.equals("Read")) {
                 controller.showAllDepartments();
-            } else if (perintah.equals("Update") || perintah.equals("Insert")) {
+            } else if (perintah.equals("Update") || perintah.equals("Create")) {
                 System.out.println("====== List Department ======");
                 controller.showAllDepartments();
                 System.out.println("\n");
-                System.out.println("Template : Id Department,Nama Department,Lokasi,Id Manager");
+                System.out.println("Template : Id Department (D---),Nama Department,Lokasi,Id Manager(J---)");
 
 
                 String[] masukan;
                 masukan = input.nextLine().split(",");
 
                 Department department = new Department(masukan[0], masukan[1], masukan[2], masukan[3]);
+                controller.showSaveDepartment(department);
 
-                controller.saveDepartment(department);
+            } else if (perintah.equals("Delete")) {
+                System.out.println("====== List Department ======");
                 controller.showAllDepartments();
-            }
+                System.out.println("\n");
+                System.out.println("Department mana yang ingin kamu bubarkan : ");
+                String id;
+                id = input.nextLine();
+                controller.showDelete(id);
+            } else System.out.println("Perintah yang kamu masukan tidak ada!");
         }
     }
 }
