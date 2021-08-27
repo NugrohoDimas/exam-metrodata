@@ -4,7 +4,7 @@ import its.nugrohodimas.controllers.DepartmentController;
 import its.nugrohodimas.models.Department;
 import its.nugrohodimas.views.DepartmentView;
 
-import javax.swing.plaf.synth.Region;
+
 import java.util.Scanner;
 
 public class Main {
