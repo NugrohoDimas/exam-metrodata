@@ -4,12 +4,14 @@ import its.nugrohodimas.daos.DepartmentDAO;
 import its.nugrohodimas.models.Department;
 import its.nugrohodimas.views.DepartmentView;
 
+import javax.swing.plaf.synth.Region;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DepartmentController implements DepartmentDAO {
     private DepartmentView departmentView;
@@ -71,7 +73,7 @@ public class DepartmentController implements DepartmentDAO {
 
     public boolean saveDepartment(Department department) {
         try {
-            boolean isInsert = getById(department.getId()) == null;
+            boolean isInsert = getById(department.getId()).getId() == null;
             String query = isInsert
                     ? "INSERT INTO departments(name, location_id, manager_id, id) VALUES (?,?,?,?)"
                     : "UPDATE departments SET name = ?, location_id = ?, manager_id = ? WHERE id = ?";
@@ -82,6 +84,7 @@ public class DepartmentController implements DepartmentDAO {
             preparedStatement.setString(2, department.getLocationId());
             preparedStatement.setString(3, department.getManagerId());
             preparedStatement.setString(4, department.getId());
+            System.out.println(preparedStatement);
             preparedStatement.execute();
             return true;
         } catch (SQLException ex) {

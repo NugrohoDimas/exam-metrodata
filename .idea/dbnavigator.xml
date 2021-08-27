@@ -26,13 +26,13 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="53f3ac55-4095-46cc-9d9c-4aa2e9a84d03">
-        <schema name="metrodata" object-types="table, view" />
+        <schema name="metrodata" object-types="table, view, function, column" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="53f3ac55-4095-46cc-9d9c-4aa2e9a84d03">
-      <console name="Connection" type="STANDARD" schema="metrodata" session="Main"><![CDATA[select * from departments;]]></console>
+      <console name="Connection" type="STANDARD" schema="metrodata" session="Main"><![CDATA["select * from departments where id = 'D007']]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -86,7 +86,7 @@
           <deprecated-pwd value="cm9vdA==" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />
