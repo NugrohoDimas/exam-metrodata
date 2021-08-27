@@ -22,6 +22,11 @@ import java.util.List;
 public class RegionController implements RegionDAO{
     private RegionView regionView;
     private Connection connection;
+    
+    public RegionController(RegionView regionView, Connection connection) {
+        this.regionView = regionView;
+        this.connection = connection;
+    }
 
     @Override
     public List<Region> getAllRegion() {
