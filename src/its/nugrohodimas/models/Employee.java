@@ -15,6 +15,10 @@ public class Employee {
     private String manajerId;
     private String departmentId;
 
+    public Employee() {
+
+    }
+
     public Employee(String id, String firstName, String lastName, String email, String phoneNumber, Date hireDate,
                     int salary, int commisionPct, String jobId, String manajerId, String departmentId) {
         this.id = id;
