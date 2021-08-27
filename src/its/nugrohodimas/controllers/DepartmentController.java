@@ -4,14 +4,12 @@ import its.nugrohodimas.daos.DepartmentDAO;
 import its.nugrohodimas.models.Department;
 import its.nugrohodimas.views.DepartmentView;
 
-import javax.swing.plaf.synth.Region;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class DepartmentController implements DepartmentDAO {
     private DepartmentView departmentView;

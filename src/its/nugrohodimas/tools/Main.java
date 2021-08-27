@@ -4,7 +4,6 @@ import its.nugrohodimas.controllers.DepartmentController;
 import its.nugrohodimas.models.Department;
 import its.nugrohodimas.views.DepartmentView;
 
-import javax.swing.plaf.synth.Region;
 import java.util.Scanner;
 
 public class Main {
@@ -13,6 +12,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         DBConnection dbc = new DBConnection();
         DepartmentView view = new DepartmentView();
+        DepartmentController controller = new DepartmentController(view, dbc.getConnection());
 
         System.out.println("========================================");
         System.out.println("1. Regions                  1. Create");
@@ -29,33 +29,40 @@ public class Main {
         String perintah = input.nextLine();
 
         if (namaTable.equals("Departments")) {
-            DepartmentController controller = new DepartmentController(view, dbc.getConnection());
-            if (perintah.equals("Read")) {
-                controller.showAllDepartments();
-            } else if (perintah.equals("Update") || perintah.equals("Create")) {
-                System.out.println("====== List Department ======");
-                controller.showAllDepartments();
-                System.out.println("\n");
-                System.out.println("Template : Id Department (D---),Nama Department,Lokasi,Id Manager(J---)");
+            switch (perintah) {
+                case "Read":
+                    controller.showAllDepartments();
+                    break;
+                case "Update":
+                case "Create":
+                    System.out.println("====== List Department ======");
+                    controller.showAllDepartments();
+                    System.out.println("\n");
+                    System.out.println("Template : Id Department (D---),Nama Department,Lokasi,Id Manager(J---)");
 
 
-                String[] masukan;
-                masukan = input.nextLine().split(",");
+                    String[] masukan;
+                    masukan = input.nextLine().split(",");
 
-                Department department = new Department(masukan[0], masukan[1], masukan[2], masukan[3]);
-                controller.showSaveDepartment(department);
+                    Department department = new Department(masukan[0], masukan[1], masukan[2], masukan[3]);
+                    controller.showSaveDepartment(department);
 
-            } else if (perintah.equals("Delete")) {
-                System.out.println("====== List Department ======");
-                controller.showAllDepartments();
-                System.out.println("\n");
-                System.out.println("Department mana yang ingin kamu bubarkan : ");
-                String id;
-                id = input.nextLine();
-                controller.showDelete(id);
-            } else {
-                System.out.println("Perintah yang kamu masukan tidak ada!");
+                    break;
+                case "Delete":
+                    System.out.println("====== List Department ======");
+                    controller.showAllDepartments();
+                    System.out.println("\n");
+                    System.out.println("Department mana yang ingin kamu bubarkan : ");
+                    String id;
+                    id = input.nextLine();
+                    controller.showDelete(id);
+                    break;
+                default:
+                    System.out.println("Perintah yang kamu masukan tidak ada!");
+                    break;
             }
+        } else if (namaTable.equals("Employees")) {
+
         }
     }
 }
