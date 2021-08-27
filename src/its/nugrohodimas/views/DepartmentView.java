@@ -12,4 +12,8 @@ public class DepartmentView {
                     d.getManagerId());
         }
     }
+
+    public void showStatusDepartments(boolean status) {
+        System.out.println(status?"Query berhasil":"Query gagal");
+    }
 }
