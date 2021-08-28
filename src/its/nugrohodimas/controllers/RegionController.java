@@ -27,6 +27,12 @@ public class RegionController implements RegionDAO{
         this.regionView = regionView;
         this.connection = connection;
     }
+
+    /**
+     * Mendapatkan list dari table Regions
+     * @return list dari Object region
+     * @author Dony Tri P
+     */
     @Override
     public List<Region> getAllRegion() {
           List<Region> regions = new ArrayList<>();
@@ -42,6 +48,12 @@ public class RegionController implements RegionDAO{
         return regions;
     }
 
+    /**
+     * Menghapus objek region dari dari database berdasarkan id yang dimasukkan
+     * param id - id dari region
+     * @return status boolean dari query
+     * @author Dony Tri P
+     */
     @Override
     public boolean deleteRegion(String id) {
          try {
@@ -56,9 +68,15 @@ public class RegionController implements RegionDAO{
         return false;
     }
 
+    /**
+     * Mengambil objek tunggal region berdasarkan id yang dimasukan
+     * param id - id dari region
+     * @return sebuah objek dari region
+     * @author Dony Tri P
+     */
     @Override
     public Region getById(String id) {
-         Region region = null;
+        Region region = null;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT *FROM regions WHERE id=?");
             preparedStatement.setString(1, id);
@@ -72,6 +90,12 @@ public class RegionController implements RegionDAO{
         return region;
     }
 
+    /**
+     * Menyimpan atau memasukkan objek ke region
+     * param region - objek yang ada di dalam region
+     * @return status boolean dari query
+     * @author Dony Tri P
+     */
     @Override
     public boolean saveRegion(Region region) {
          try {
@@ -80,7 +104,6 @@ public class RegionController implements RegionDAO{
                     ? "INSERT INTO regions(name, id) VALUES(?,?)"
                     : "UPDATE regions SET name = ? WHERE id = ?";
 
-             System.out.println(isInsert);
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, region.getName());
             preparedStatement.setString(2, region.getId());
