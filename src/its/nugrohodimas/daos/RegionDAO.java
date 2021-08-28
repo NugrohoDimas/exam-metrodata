@@ -13,11 +13,11 @@ import java.util.List;
  * @author Dony Tri P
  */
 public interface RegionDAO{
-    public List<Region> getAllRegion();
+    List<Region> getAllRegion();
 
-    public boolean deleteRegion(String id);
+    boolean deleteRegion(String id);
 
-    public Region getById(String id);
+    Region getById(String id);
 
-    public boolean saveRegion(Region region);
+    boolean saveRegion(Region region);
 }
