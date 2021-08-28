@@ -48,9 +48,9 @@ public class Main {
 
         if (namaTable.equals("Regions")) {
             RegionController regionController = new RegionController(regionView, dbc.getConnection());
-            if (perintah.equals("Read")) {
+            if (perintah.equals("Read") || perintah.equals("1")) {
                 regionController.showAllRegions();
-            } else if (perintah.equals("Update") || perintah.equals("Insert")) {
+            } else if (perintah.equals("Update") || perintah.equals("Create") || perintah.equals("1") || perintah.equals("3")){
                 System.out.println("====== List Department ======");
                 regionController.showAllRegions();
                 System.out.print("Masukkan Id Region : ");
@@ -63,7 +63,7 @@ public class Main {
                 regionController.saveRegion(region);
                 regionController.showAllRegions();
             }
-            else if(perintah.equals("Delete")){
+            else if(perintah.equals("Delete") || perintah.equals("4")){
                 System.out.println("====== List Department ======");
                 regionController.showAllRegions();
                 System.out.println("Masukkan Id :");
@@ -78,9 +78,9 @@ public class Main {
             System.in.read();
         } else if (namaTable.equals("Countries")){
             CountryController countryController = new CountryController(countryView, dbc.getConnection());
-            if (perintah.equals("Read")) {
+            if (perintah.equals("Read") || perintah.equals("1")) {
                 countryController.showAllCountries();
-            } else if (perintah.equals("Update") || perintah.equals("Insert")) {
+            } else if (perintah.equals("Update") || perintah.equals("Create") || perintah.equals("1") || perintah.equals("3")){
                 System.out.println("====== List Department ======");
                 countryController.showAllCountries();
                 System.out.print("Masukkan Id Country : ");
@@ -95,7 +95,7 @@ public class Main {
                 countryController.saveCountry(country);
                 countryController.showSaveCountry(country);
             }
-            else if(perintah.equals("Delete")){
+            else if(perintah.equals("Delete") || perintah.equals("4")){
                 System.out.println("====== List Department ======");
                 countryController.showAllCountries();
                 System.out.println("Masukkan Id :");
@@ -110,9 +110,9 @@ public class Main {
             System.in.read();
         }else if (namaTable.equals("Locations")){
             LocationController locationController = new LocationController(locationView, dbc.getConnection());
-            if (perintah.equals("Read")) {
+            if (perintah.equals("Read") || perintah.equals("1")) {
                 locationController.showAllLocations();
-            } else if (perintah.equals("Update") || perintah.equals("Insert")) {
+            } else if (perintah.equals("Update") || perintah.equals("Create") || perintah.equals("1") || perintah.equals("3")){
                 System.out.println("====== List Department ======");
                 locationController.showAllLocations();
                 System.out.print("Masukkan Id Location : ");
@@ -133,7 +133,7 @@ public class Main {
                 locationController.saveLocation(location);
                 locationController.showSaveLocation(location);
             }
-            else if(perintah.equals("Delete")){
+            else if(perintah.equals("Delete") || perintah.equals("4")){
                 System.out.println("====== List Department ======");
                 locationController.showAllLocations();
                 System.out.println("Masukkan Id :");
@@ -148,9 +148,9 @@ public class Main {
             System.in.read();
         }else if (namaTable.equals("Jobs")){
             JobController jobController = new JobController(jobView, dbc.getConnection());
-            if (perintah.equals("Read")) {
+            if (perintah.equals("Read") || perintah.equals("1")) {
                 jobController.showAllJobs();
-            } else if (perintah.equals("Update") || perintah.equals("Insert")) {
+            } else if (perintah.equals("Update") || perintah.equals("Create") || perintah.equals("1") || perintah.equals("3")){
                 System.out.println("====== List Department ======");
                 jobController.showAllJobs();
                 System.out.print("Masukkan Id Job : ");
@@ -167,7 +167,7 @@ public class Main {
                 jobController.saveJob(job);
                 jobController.showSaveJob(job);
             }
-            else if(perintah.equals("Delete")){
+            else if(perintah.equals("Delete") || perintah.equals("4")){
                 System.out.println("====== List Department ======");
                 jobController.showAllJobs();
                 System.out.println("Masukkan Id :");
