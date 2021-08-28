@@ -135,7 +135,7 @@ public class Main {
 
         if (namaTable.equals("Regions")) {
             RegionController regionController = new RegionController(regionView, dbc.getConnection());
-            if (perintah.equals("Read") || perintah.equals("1")) {
+            if (perintah.equals("Read") || perintah.equals("2")) {
                 regionController.showAllRegions();
             } else if (perintah.equals("Update") || perintah.equals("Create") || perintah.equals("1") || perintah.equals("3")){
                 System.out.println("====== List Department ======");
@@ -165,7 +165,7 @@ public class Main {
             System.in.read();
         } else if (namaTable.equals("Countries")){
             CountryController countryController = new CountryController(countryView, dbc.getConnection());
-            if (perintah.equals("Read") || perintah.equals("1")) {
+            if (perintah.equals("Read") || perintah.equals("2")) {
                 countryController.showAllCountries();
             } else if (perintah.equals("Update") || perintah.equals("Create") || perintah.equals("1") || perintah.equals("3")){
                 System.out.println("====== List Department ======");
@@ -197,7 +197,7 @@ public class Main {
             System.in.read();
         }else if (namaTable.equals("Locations")){
             LocationController locationController = new LocationController(locationView, dbc.getConnection());
-            if (perintah.equals("Read") || perintah.equals("1")) {
+            if (perintah.equals("Read") || perintah.equals("2")) {
                 locationController.showAllLocations();
             } else if (perintah.equals("Update") || perintah.equals("Create") || perintah.equals("1") || perintah.equals("3")){
                 System.out.println("====== List Department ======");
@@ -235,7 +235,7 @@ public class Main {
             System.in.read();
         }else if (namaTable.equals("Jobs")){
             JobController jobController = new JobController(jobView, dbc.getConnection());
-            if (perintah.equals("Read") || perintah.equals("1")) {
+            if (perintah.equals("Read") || perintah.equals("2")) {
                 jobController.showAllJobs();
             } else if (perintah.equals("Update") || perintah.equals("Create") || perintah.equals("1") || perintah.equals("3")){
                 System.out.println("====== List Department ======");
