@@ -76,23 +76,29 @@ public class Main {
                 System.out.println("====== List Employee ======");
                 employeeController.showAllEmployees();
                 System.out.println("\n");
-                System.out.println("Masukan sesuai urutan : Id Department (D---), Nama Awal, Nama Akhir, " +
-                        "Email, Nomer Telepon," +
-                        " Tanggal Masuk, Gaji, Commision, Job ID (J--), Manager Id (J---), Department ID (D---)");
 
+                System.out.println("Masukan ID (J---)");
                 String id = input.next();
+                System.out.println("Masukan nama pertama");
                 String firstName = input.next();
+                System.out.println("Masukan nama terakhir");
                 String lastName = input.next();
+                System.out.println("Masukan email");
                 String email = input.next();
+                System.out.println("Masukan nomor telepon");
                 String numberPhone = input.next();
+                System.out.println("Masukan tanggal masuk (ex : 2021-08-02)");
                 String date = input.next();
                 Date hireDate = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-
-
+                System.out.println("Masukan gaji");
                 int salary = input.nextInt();
+                System.out.println("Masukan commision");
                 int commision = input.nextInt();
+                System.out.println("Masukan Job ID (J--)");
                 String jobId = input.next();
+                System.out.println("Masukan Manager ID (J---)");
                 String managerId = input.next();
+                System.out.println("Masukan Department ID (D---)");
                 String departmentId = input.next();
 
                 Employee department = new Employee(id, firstName, lastName, email, numberPhone, hireDate, salary,

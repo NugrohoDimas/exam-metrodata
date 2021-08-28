@@ -88,20 +88,24 @@ public class EmployeeController implements EmployeeDAO {
         try {
             boolean isInsert = getById(employee.getId()).getId() == null;
             String query = isInsert
-                    ? "INSERT INTO departments(first_name, last_name, email, phone_number" +
-                    ", hire_date, salary, commision_pct, job_id, manager_id, department_id, id) " +
+                    ? "INSERT INTO employees(first_name, last_name, email, phone_number" +
+                    ", hire_date, salary, comission_pct, job_id, manager_id, department_id, id) " +
                     "VALUES (?,?,?,?,?,?,?,?,?,?,?)"
-                    : "UPDATE departments SET first_name = ?, last_name = ?, email = ? ," +
-                    "phone_number = ?, hire_date = ?, salary = ?, commision_pct = ?, job_id = ?," +
+                    : "UPDATE employees SET first_name = ?, last_name = ?, email = ? ," +
+                    "phone_number = ?, hire_date = ?, salary = ?, comission_pct = ?, job_id = ?," +
                     " manager_id = ?, department_id = ? WHERE id = ?";
 
+            java.util.Date utilDate = employee.getHireDate();
+            System.out.println(utilDate);
+            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+            System.out.println(sqlDate);
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, employee.getFirstName());
             preparedStatement.setString(2, employee.getLastName());
             preparedStatement.setString(3, employee.getEmail());
             preparedStatement.setString(4, employee.getPhoneNumber());
-            preparedStatement.setDate(5, (Date) employee.getHireDate());
+            preparedStatement.setDate(5, sqlDate);
             preparedStatement.setInt(6, employee.getSalary());
             preparedStatement.setInt(7, employee.getCommisionPct());
             preparedStatement.setString(8, employee.getJobId());
