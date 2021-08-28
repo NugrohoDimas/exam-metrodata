@@ -17,6 +17,11 @@ public class EmployeeController implements EmployeeDAO {
         this.connection = connection;
     }
 
+    /**
+     * Mendapatkan list dari table Employee
+     * @return list dari Object Employee
+     * @author Nugroho Dimas A
+     */
     @Override
     public List<Employee> getAllEmployees() {
         List<Employee> employees = new ArrayList<>();
@@ -42,6 +47,13 @@ public class EmployeeController implements EmployeeDAO {
         return employees;
     }
 
+
+    /**
+     * Menghapus objek Employee dari database berdasarkan id yang dimasukan
+     * @param id - id dari pegawai
+     * @return status boolean dari query
+     * @author Nugroho Dimas A
+     */
     @Override
     public boolean deleteEmployee(String id) {
         try {
@@ -56,6 +68,12 @@ public class EmployeeController implements EmployeeDAO {
         return false;
     }
 
+    /**
+     * Mengambil objek tunggal Employee berdasarkan id yang dimasukan
+     * @param id - id dari karyawan
+     * @return sebuah objek Employee
+     * @author Nugroho Dimas A
+     */
     @Override
     public Employee getById(String id) {
         Employee employee = new Employee();
@@ -83,6 +101,12 @@ public class EmployeeController implements EmployeeDAO {
         return employee;
     }
 
+    /**
+     * Menyimpan atau memasukan objek Employee ke dalam database
+     * @param employee - objek dari kelas Employee
+     * @return status boolean dari query
+     * @author Nugroho Dimas A
+     */
     @Override
     public boolean saveEmployee(Employee employee) {
         try {

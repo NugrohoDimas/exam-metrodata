@@ -22,6 +22,11 @@ public class DepartmentController implements DepartmentDAO {
     }
 
 
+    /**
+     * Mendapatkan list dari table Department
+     * @return list dari Object Department
+     * @author Nugroho Dimas A
+     */
     public List<Department> getAllDepartments() {
         List<Department> departments = new ArrayList<>();
         try {
@@ -37,6 +42,12 @@ public class DepartmentController implements DepartmentDAO {
         return departments;
     }
 
+    /**
+     * Menghapus objek Department dari database berdasarkan id yang dimasukan
+     * @param id - id dari department
+     * @return status boolean dari query
+     * @author Nugroho Dimas A
+     */
     public boolean deleteDepartment(String id) {
         try {
             PreparedStatement preparedStatement = connection
@@ -50,6 +61,12 @@ public class DepartmentController implements DepartmentDAO {
         return false;
     }
 
+    /**
+     * Mengambil objek tunggal Department berdasarkan id yang dimasukan
+     * @param id - id dari department
+     * @return sebuah objek Department
+     * @author Nugroho Dimas A
+     */
     public Department getById(String id) {
         Department department = new Department();
         try {
@@ -69,6 +86,12 @@ public class DepartmentController implements DepartmentDAO {
         return department;
     }
 
+    /**
+     * Menyimpan atau memasukan objek Department ke dalam database
+     * @param department - objek dari kelas Department
+     * @return status boolean dari query
+     * @author Nugroho Dimas A
+     */
     public boolean saveDepartment(Department department) {
         try {
             boolean isInsert = getById(department.getId()).getId() == null;
