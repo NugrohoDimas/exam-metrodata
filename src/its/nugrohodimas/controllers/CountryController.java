@@ -28,6 +28,11 @@ public class CountryController implements CountryDAO{
         this.connection = connection;
     }
 
+    /**
+     * Mendapatkan list dari table Countries
+     * @return list dari Object country
+     * @author Dony Tri P
+     */
     @Override
     public List<Country> getAllCountries() {
         Country country = new Country();
@@ -44,6 +49,12 @@ public class CountryController implements CountryDAO{
         return countries;
     }
 
+    /**
+     * Menghapus objek country dari dari database berdasarkan id yang dimasukkan
+     * param id - id dari country
+     * @return status boolean dari query
+     * @author Dony Tri P
+     */
     @Override
     public boolean deleteCountry(String id) {
         try {
@@ -58,6 +69,12 @@ public class CountryController implements CountryDAO{
         return false;
     }
 
+    /**
+     * Mengambil objek tunggal country berdasarkan id yang dimasukan
+     * param id - id dari country
+     * @return sebuah objek dari country
+     * @author Dony Tri P
+     */
     @Override
     public Country getById(String id) {
         Country country = null;
@@ -73,7 +90,12 @@ public class CountryController implements CountryDAO{
         }
         return country;
     }
-
+    /**
+     * Menyimpan atau memasukkan objek ke country
+     * param country - objek yang ada di dalam country
+     * @return status boolean dari query
+     * @author Dony Tri P
+     */
     @Override
     public boolean saveCountry(Country country) {
         try {
@@ -106,4 +128,3 @@ public class CountryController implements CountryDAO{
         this.countryView.showStatusCountries(deleteCountry(id));
     }
 }
-

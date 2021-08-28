@@ -28,6 +28,11 @@ public class LocationController implements LocationDAO{
         this.connection = connection;
     }
     
+    /**
+     * Mendapatkan list dari table Locations
+     * @return list dari Object location
+     * @author Dony Tri P
+     */
     @Override
     public List<Location> getAllLocations() {
           List<Location> locations = new ArrayList<>();
@@ -45,6 +50,12 @@ public class LocationController implements LocationDAO{
         return locations;
     }
 
+    /**
+     * Menghapus objek location dari dari database berdasarkan id yang dimasukkan
+     * param id - id dari location
+     * @return status boolean dari query
+     * @author Dony Tri P
+     */
     @Override
     public boolean deleteLocation(String id) {
          try {
@@ -59,6 +70,12 @@ public class LocationController implements LocationDAO{
         return false;
     }
 
+    /**
+     * Mengambil objek tunggal location berdasarkan id yang dimasukan
+     * param id - id dari location
+     * @return sebuah objek dari location
+     * @author Dony Tri P
+     */
     @Override
     public Location getById(String id) {
         Location location = null;
@@ -77,6 +94,12 @@ public class LocationController implements LocationDAO{
         return location;
     }
 
+    /**
+     * Menyimpan atau memasukkan objek ke location
+     * param location - objek yang ada di dalam location
+     * @return status boolean dari query
+     * @author Dony Tri P
+     */
     @Override
     public boolean saveLocation(Location location) {
          try {
@@ -113,4 +136,3 @@ public class LocationController implements LocationDAO{
     }
     
 }
-

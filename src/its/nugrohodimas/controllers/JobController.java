@@ -28,6 +28,11 @@ public class JobController implements JobDAO{
         this.connection = connection;
     }
 
+    /**
+     * Mendapatkan list dari table Job
+     * @return list dari Object jobs
+     * @author Dony Tri P
+     */
     @Override
     public List<Job> getAllJobs() {
           List<Job> jobs = new ArrayList<>();
@@ -44,6 +49,12 @@ public class JobController implements JobDAO{
         return jobs;
     }
 
+    /**
+     * Menghapus objek job dari dari database berdasarkan id yang dimasukkan
+     * param id - id dari job
+     * @return status boolean dari query
+     * @author Dony Tri P
+     */
     @Override
     public boolean deleteJob(String id) {
          try {
@@ -58,6 +69,12 @@ public class JobController implements JobDAO{
         return false;
     }
 
+    /**
+     * Mengambil objek tunggal job berdasarkan id yang dimasukan
+     * param id - id dari job
+     * @return sebuah objek dari job
+     * @author Dony Tri P
+     */
     @Override
     public Job getById(String id) {
         Job job = null;
@@ -75,6 +92,12 @@ public class JobController implements JobDAO{
         return job;
     }
 
+    /**
+     * Menyimpan atau memasukkan objek ke job
+     * param job - objek yang ada di dalam job
+     * @return status boolean dari query
+     * @author Dony Tri P
+     */
     @Override
     public boolean saveJob(Job job) {
          try {
@@ -108,4 +131,3 @@ public class JobController implements JobDAO{
         this.jobView.showStatusJobs(deleteJob(id));
     }
 }
-
