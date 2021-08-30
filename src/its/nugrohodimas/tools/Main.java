@@ -189,8 +189,13 @@ public class Main {
                         regionController.showAllRegions();
                         System.out.println("Masukkan Id :");
                         String hapus = input.nextLine();
-
-                        regionController.deleteRegion(hapus);
+                        System.out.println("Apakah kamu yakin? ya/tidak");
+                        String confirm = input.next();
+                        if (confirm.equals("ya")) {
+                            regionController.deleteRegion(hapus);
+                        } else {
+                            main(null);
+                        }
                         System.out.println("Data");
                         break;
                     default:
